@@ -31,4 +31,5 @@ foreach(proto_file ${PROTOBUF_FILELIST})
 endforeach()    
 
 add_library(${PROJECT_NAME}_proto STATIC ${PROTO_HEADER} ${PROTO_SRC})
+target_link_libraries(${PROJECT_NAME}_proto PUBLIC grpc++.a grpc.a libz.a gpr.a)
 
