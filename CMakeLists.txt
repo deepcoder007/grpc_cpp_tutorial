@@ -11,6 +11,19 @@ message("List of identified files: ${SOURCE_FILES}")
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${Protobuf_LIBRARIES})
 target_link_libraries(${PROJECT_NAME} PUBLIC grpc++.a grpc.a libz.a ssl.a crypto.a gpr.a)
+target_link_libraries(${PROJECT_NAME} PUBLIC 
+    absl_str_format_internal.a
+    absl_spinlock_wait.a
+    absl_bad_optional_access.a
+    absl_int128
+    absl_base.a
+    absl_strings.a
+    absl_strings_internal.a
+    absl_time.a
+    absl_time_zone.a
+    absl_raw_logging_internal.a
+    absl_throw_delegate.a
+    )
 
 function(setup_app target src_file)
     add_executable(${target} ${src_file})
